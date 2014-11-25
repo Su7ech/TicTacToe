@@ -56,14 +56,6 @@ def is_board_filled?(board)
   empty_square(board) == []
 end
 
-def two_in_a_row(hsh, mrkr)
-  if hsh.values.count(mrkr)
-    hsh.select { |k, v| v == ' ' }.keys.first
-  else
-    false
-  end
-end
-
 loop do
   board = initialize_board
   draw_board(board)
@@ -75,7 +67,6 @@ loop do
     user_picks_a_square(board)
     draw_board(board)
     computer_picks_a_square(board)
-    two_in_a_row(board, 'X')
     draw_board(board)
     winner = determine_the_winner(board)
   end until winner || is_board_filled?(board)
